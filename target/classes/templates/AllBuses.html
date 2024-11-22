@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <title>Administration</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .parent{
+            display:flex;
+            margin-left:100px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="parent text-center mt-5 mx-5">
+    <h2 class="text-center  mt-2 mx-2"><i>BUS MANAGEMENT</i></h2>
+</div>
+<a th:href="@{/addBus}" class="btn btn-info mx-5 mt-3">ADD</a>
+<div class="container mt-5 text-center">
+
+    <table class="table table-striped mt-4">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>BUS_NAME</th>
+            <th>SOURCE</th>
+            <th>DESTINATION</th>
+            <th>TIME</th>
+            <th>DATE</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="bus:${listOfBuses}">
+            <td th:text="${bus.Id}"></td>
+            <td th:text="${bus.busName}"></td>
+            <td th:text="${bus.source}"></td>
+            <td th:text="${bus.destination}"></td>
+            <td th:text="${bus.date}"></td>
+            <td th:text="${bus.time}"></td>
+            <td>
+                <a th:href="@{/update/{id}(id=${bus.Id})}" class="btn btn-warning">UPDATE</a>
+                <a  class="btn btn-danger">DELETE</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+<a th:href="@{/home}" class="btn btn-info mx-5 mt-3"> BACK </a>
+</body>
+</html>
