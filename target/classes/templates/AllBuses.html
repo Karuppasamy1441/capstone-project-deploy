@@ -25,8 +25,9 @@
             <th>BUS_NAME</th>
             <th>SOURCE</th>
             <th>DESTINATION</th>
-            <th>TIME</th>
+            <th>PRICE</th>
             <th>DATE</th>
+            <th>TIME</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -36,11 +37,12 @@
             <td th:text="${bus.busName}"></td>
             <td th:text="${bus.source}"></td>
             <td th:text="${bus.destination}"></td>
+            <td th:text="${bus.price}"></td>
             <td th:text="${bus.date}"></td>
             <td th:text="${bus.time}"></td>
             <td>
                 <a th:href="@{/update/{id}(id=${bus.Id})}" class="btn btn-warning">UPDATE</a>
-                <a  class="btn btn-danger">DELETE</a>
+                <a th:href="@{/deleteBus/{id}(id=${bus.Id})}" class="btn btn-danger">DELETE</a>
             </td>
         </tr>
         </tbody>

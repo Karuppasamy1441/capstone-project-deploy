@@ -49,4 +49,12 @@ public class BusController {
         return "Success";
     }
 
+    @GetMapping("/deleteBus/{id}")
+    public String delete(@PathVariable("id")Long id,Model model){
+        Bus bus=busService.getById(id);
+        model.addAttribute("busName",bus.getBusName());
+        busService.deleteById(id);
+        return "delete";
+    }
+
 }
